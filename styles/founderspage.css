@@ -1,0 +1,41 @@
+.flex {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    
+}
+
+p {
+    border: 2px solid black;
+    padding: 10px;
+
+}
+
+ body {
+    background-color: rgb(162,49, 117); 
+   /*background-color: rgb(176, 118, 151)*/
+} 
+
+nav a:hover {
+    color: white;
+}
+
+li {
+    margin: 10px;
+    color: midnightblue;
+    font-size: 1.2em;
+}
+h1 {
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-shadow: 1px 1px 1px darkgrey;
+    background-color: rgb(196,147,177);
+
+}
+
+#box {
+    background-color: rgb(196, 147, 177);
+    padding: 5px;
+    border: 2px solid black;
+}

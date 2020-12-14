@@ -1,6 +1,7 @@
 .button {
     margin: auto;
     padding: 20px;
+    
   }
   
   button {
@@ -10,9 +11,10 @@
 
   .center_text {
     text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-shadow: 1px 1px 1px darkgrey;
+    background-color: rgb(83, 7, 149);
     }
-  
-    .start {
-      padding: 10px;
-      border: dashed;
-    }
+
+    

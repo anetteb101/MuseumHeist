@@ -1,7 +1,7 @@
 MuseumHeist = {
 
     init: function() {
-      
+
     },
 
     createCircle: function() {
@@ -31,6 +31,9 @@ MuseumHeist = {
       
     },
 
+    changeColor: function() {
+      
+    },
     
   
   }

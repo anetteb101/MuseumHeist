@@ -3,20 +3,24 @@
     }
 
  #Heist_container {
-width: 700px;
-height: 500px;
-position: relative;
-margin: auto;
-border: 2px solid black;
-border-radius: 12px;
+    width: 700px;
+    height: 500px;
+    position: relative;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 12px;
 }
     .circle {
         height: 20px;
         width: 20px;
-        background-color: green;
-        border: 1px solid green;
+        background-color: black;
+        border: 1px solid black;
         border-radius: 10px;
         position:absolute;
         top: 0px;
         left: 0px;
+    }
+
+    h3 {
+        margin: left;
     }

@@ -2,3 +2,7 @@
     text-align: center;
     }
 
+    body {
+        background-image: url("../images/MazeSpace.jpg");
+        background-size:cover;
+      }

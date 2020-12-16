@@ -21,12 +21,3 @@ body {
   background-image: url("../images/MazeSpace.jpg");
   background-size:cover;
 }
-
-.flex2{
-  margin: auto;
-  border: 2px solid black;
-}
-
-label {
-  color: white;
-}

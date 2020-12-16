@@ -2,7 +2,7 @@ MuseumHeist = {
   
   container: document.getElementById("circle_container"),
 
-    init: function() {
+     init: function() {    
 
       this.createCircle();
       this.render();

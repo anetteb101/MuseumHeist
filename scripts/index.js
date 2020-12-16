@@ -2,6 +2,8 @@ MuseumHeist = {
   
   container: document.getElementById("circle_container"),
 
+  action: document.getElementById("change_color"),
+
     init: function() {
 
       this.createPerson();
@@ -10,7 +12,7 @@ MuseumHeist = {
 
     createPerson: function() {
       let persondiv = document.createElement("div");
-      persondiv.className = "circle";
+      persondiv.className = "person";
       this.container.append(persondiv);
       let person = {
         x_pos: Math.random()*200,

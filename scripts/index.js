@@ -4,9 +4,13 @@ MuseumHeist = {
 
   action: document.getElementById("change_color").value,
 
+  people: [],
+
     init: function() {
 
-      this.createPerson();
+      for(let i = 0; i < 1; i++ ) {
+        this.people.push(this.createPerson());
+      }
       this.render();
     },
 
@@ -35,8 +39,10 @@ MuseumHeist = {
     },
 
     render: function() {
-      this.person.element.style.top = this.person.y_pos + "px";
-      this.person.element.style.left = this.person.x_pos + "px";
+      for(let i = 0; i < 1; i++) {
+      this.people[i].element.style.top = this.people[i].y_pos + "px";
+      this.people[i].element.style.left = this.people[i].x_pos + "px";
+      }
     },
 
     changeColor: function() {

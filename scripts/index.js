@@ -2,8 +2,6 @@ MuseumHeist = {
   
   container: document.getElementById("circle_container"),
 
-  action: document.getElementById("change_color").value,
-
   people: [],
 
     init: function() {
@@ -44,17 +42,6 @@ MuseumHeist = {
       this.people[i].element.style.left = this.people[i].x_pos + "px";
       }
     },
-
-    changeColor: function() {
-      if (MuseumHeist.action === "Black") {
-        this.color = "black";
-         this.person.element.color = this.color;
-      } else if (MuseumHeist.action === "Red") {
-        person.color = "red";
-         this.person.element.color = this.color;
-      }
-    },
-    
   
   }
   

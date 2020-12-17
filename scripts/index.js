@@ -5,7 +5,7 @@ MuseumHeist = {
   action: document.getElementById("change_color"),
 
     init: function() {
-
+   
       this.createPerson();
       this.render();
     },

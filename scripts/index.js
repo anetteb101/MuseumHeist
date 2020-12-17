@@ -5,7 +5,7 @@ MuseumHeist = {
   action: document.getElementById("change_color").value,
 
   people: [],
-
+  
     init: function() {
 
       for(let i = 0; i < 1; i++ ) {
@@ -19,8 +19,8 @@ MuseumHeist = {
       persondiv.className = "person";
       this.container.append(persondiv);
       let person = {
-        x_pos: Math.random()*200,
-        y_pos: Math.random()*200,
+        x_pos: Math.random()*695,
+        y_pos: Math.random()*500,
         x_velocity: 1,
         y_velocity: 1, 
         radius: 10,
@@ -31,7 +31,7 @@ MuseumHeist = {
     },
 
     createWalls: function() {
-
+       
     },
 
     timer: function() {

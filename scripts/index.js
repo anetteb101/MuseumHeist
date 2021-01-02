@@ -9,7 +9,7 @@ MuseumHeist = {
     init: function() {
 
       for(let i = 0; i < 1; i++ ) {
-        this.people.push(this.createPerson());
+        this.people.push(this.createPerson());``
       }
       this.render();
     },

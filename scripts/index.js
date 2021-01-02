@@ -1,9 +1,7 @@
 MuseumHeist = {
   
   container: document.getElementById("circle_container"),
-
-  action: document.getElementById("change_color").value,
-
+  animation: undefined,
   people: [],
   
     init: function() {
@@ -11,6 +9,38 @@ MuseumHeist = {
       for(let i = 0; i < 1; i++ ) {
         this.people.push(this.createPerson());``
       }
+
+      window.onkeydown = function(event) {
+        if(event.keycode == 87) {
+          //press w
+          for(let i = 0; i < this.people.length; i++) {
+          if(this.people[i].y_velocity == 1 || this.people[i].y_velocity == -1) {
+            this.people[i].y_velocity *= 1;
+          }
+          }
+        //  for(let i = 0; i < this.people.length; i++) {
+        //  this.people[i].y_velocity = this.people[i].y_velocity * 1;
+        //  }
+        } else if(event.keycode == 65) {
+          //press a
+          for(let i = 0; i < this.people.length; i++) {
+            this.people[i].x_velocity = this.people[i].x_velocity * -1;
+          }
+        } else if(event.keycode == 68) {
+          //press d
+          for(let i = 0; i < this.people.length; i++) {
+          this.people[i].x_velocity = this.people[i].x_velocity * 1;
+          }
+        } else if(event.keycode == 83) {
+          //press s
+          for(let i = 0; i < this.people.length; i++) {
+          this.people[i].y_velocity = this.people[i].y_velocity * 1;
+          }
+        }
+        console.log("This works");
+      }.bind(MuseumHeist)
+
+      this.startAnimation();
       this.render();
     },
 
@@ -30,31 +60,36 @@ MuseumHeist = {
       return person;
     },
 
+    startAnimation: function() {
+      this.animation = window.setInterval(this.animatePerson.bind(MuseumHeist), 30);
+    },
+
+    animatePerson: function() {
+      this.movePerson();
+      this.render();
+    },
+
     createWalls: function() {
        
     },
 
     timer: function() {
-
+      
     },
 
     render: function() {
-      for(let i = 0; i < 1; i++) {
+      for(let i = 0; i < this.people.length; i++) {
       this.people[i].element.style.top = this.people[i].y_pos + "px";
       this.people[i].element.style.left = this.people[i].x_pos + "px";
       }
     },
 
-    changeColor: function() {
-      if (MuseumHeist.action === "Black") {
-        this.color = "black";
-         this.person.element.color = this.color;
-      } else if (MuseumHeist.action === "Red") {
-        person.color = "red";
-         this.person.element.color = this.color;
+    movePerson: function() {
+      for(let i = 0; i < this.people.length; i++) {
+      this.people[i].x_pos = this.people[i].x_pos + this.people[i].x_velocity;
+      this.people[i].y_pos = this.people[i].y_pos + this.people[i].y_velocity;
       }
     },
-    
   
   }
   

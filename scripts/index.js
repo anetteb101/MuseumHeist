@@ -103,7 +103,9 @@ MuseumHeist = {
       this.people[i].y_pos = this.people[i].y_pos + this.people[i].y_velocity;
       }
     },
-  
+    bouncePeople: function () {
+       
+    },
   }
   
   MuseumHeist.init();

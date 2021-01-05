@@ -3,11 +3,20 @@ MuseumHeist = {
   container: document.getElementById("circle_container"),
   animation: undefined,
   people: [],
+  squares: null,
+  
   
     init: function() {
+    let squares_container = document.getElementById("grid");
+    for(let i = 0; i <336; i++) {
+        let square = document.createElement("div");
+        square.className = "square";
+        squares_container.appendChild(square);
+    }
+        this. squares = squares_container.children;
 
       for(let i = 0; i < 1; i++ ) {
-        this.people.push(this.createPerson());``
+        this.people.push(this.createPerson());
       }
 
       window.onkeydown = function(event) {
@@ -16,6 +25,7 @@ MuseumHeist = {
           for(let i = 0; i < this.people.length; i++) {
           if(this.people[i].y_velocity == 1 || this.people[i].y_velocity == -1) {
             this.people[i].y_velocity *= 1;
+            
           }
           }
         //  for(let i = 0; i < this.people.length; i++) {
@@ -25,16 +35,19 @@ MuseumHeist = {
           //press a
           for(let i = 0; i < this.people.length; i++) {
             this.people[i].x_velocity = this.people[i].x_velocity * -1;
+            
           }
         } else if(event.keycode == 68) {
           //press d
           for(let i = 0; i < this.people.length; i++) {
           this.people[i].x_velocity = this.people[i].x_velocity * 1;
+         
           }
         } else if(event.keycode == 83) {
           //press s
           for(let i = 0; i < this.people.length; i++) {
           this.people[i].y_velocity = this.people[i].y_velocity * 1;
+          
           }
         }
         console.log("This works");

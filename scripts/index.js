@@ -20,37 +20,35 @@ MuseumHeist = {
       }
 
       window.onkeydown = function(event) {
-        if(event.keycode == 87) {
+        console.log(event.keyCode);
+        if(event.keyCode == 87) {
           //press w
-          for(let i = 0; i < this.people.length; i++) {
-          if(this.people[i].y_velocity == 1 || this.people[i].y_velocity == -1) {
-            this.people[i].y_velocity *= 1;
-            
-          }
-          }
-        //  for(let i = 0; i < this.people.length; i++) {
-        //  this.people[i].y_velocity = this.people[i].y_velocity * 1;
-        //  }
-        } else if(event.keycode == 65) {
+        for(let i = 0; i < this.people.length; i++) {
+          this.moveUp(this.people[i]);
+        }
+        } else if(event.keyCode == 65) {
           //press a
           for(let i = 0; i < this.people.length; i++) {
-            this.people[i].x_velocity = this.people[i].x_velocity * -1;
-            
+            this.moveLeft(this.people[i]);
           }
-        } else if(event.keycode == 68) {
+        } else if(event.keyCode == 68) {
           //press d
           for(let i = 0; i < this.people.length; i++) {
-          this.people[i].x_velocity = this.people[i].x_velocity * 1;
-         
+            this.moveRight(this.people[i]);
           }
-        } else if(event.keycode == 83) {
+        } else if(event.keyCode == 83) {
           //press s
           for(let i = 0; i < this.people.length; i++) {
-          this.people[i].y_velocity = this.people[i].y_velocity * 1;
-          
+            this.moveDown(this.people[i]); 
           }
         }
-        console.log("This works");
+        
+      }.bind(MuseumHeist)
+
+      window.onkeyup = function(event) {
+        for(let i = 0; i < this.people.length; i++) {
+          this.stopMoving(this.people[i]);
+        }
       }.bind(MuseumHeist)
 
       this.startAnimation();
@@ -64,8 +62,8 @@ MuseumHeist = {
       let person = {
         x_pos: Math.random()*695,
         y_pos: Math.random()*500,
-        x_velocity: 1,
-        y_velocity: 1, 
+        x_velocity: 0,
+        y_velocity: 0, 
         radius: 10,
         color: "black",
         element: persondiv,
@@ -97,15 +95,50 @@ MuseumHeist = {
       }
     },
 
-    movePerson: function() {
+    movePerson: function(event) {
       for(let i = 0; i < this.people.length; i++) {
       this.people[i].x_pos = this.people[i].x_pos + this.people[i].x_velocity;
       this.people[i].y_pos = this.people[i].y_pos + this.people[i].y_velocity;
       }
     },
-    bouncePeople: function () {
-       
+
+    moveUp: function(people) {
+      if(people.y_velocity == 1) {
+          people.y_velocity = people.y_velocity * -1;
+        } else if(people.y_velocity == 0) {
+          people.y_velocity = people.y_velocity - 1;
+        }
     },
+
+    moveLeft: function(people) {
+      if(people.x_velocity == 1) {
+          people.x_velocity = people.x_velocity * -1;
+        } else if(people.x_velocity == 0) {
+          people.x_velocity = people.x_velocity - 1;
+        }
+    },
+
+    moveRight: function(people) {
+      if(people.x_velocity == -1) {
+          people.x_velocity = people.x_velocity * -1;
+        } else if(people.y_velocity == 0) {
+          people.x_velocity = people.x_velocity + 1;
+        }
+    },
+
+    moveDown: function(people) {
+      if(people.y_velocity == -1) {
+          people.y_velocity = people.y_velocity * -1;
+        } else if(people.y_velocity == 0) {
+          people.y_velocity = people.y_velocity + 1;
+        }
+    },
+
+    stopMoving: function(people) {
+      people.x_velocity = 0;
+      people.y_velocity = 0;
+    }
+  
   }
   
   MuseumHeist.init();

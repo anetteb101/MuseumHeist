@@ -60,8 +60,8 @@ MuseumHeist = {
       persondiv.className = "person";
       this.container.append(persondiv);
       let person = {
-        x_pos: Math.random()*695,
-        y_pos: Math.random()*500,
+        x_pos: 30,
+        y_pos: 15,
         x_velocity: 0,
         y_velocity: 0, 
         radius: 10,

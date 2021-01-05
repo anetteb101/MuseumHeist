@@ -3,8 +3,17 @@ MuseumHeist = {
   container: document.getElementById("circle_container"),
   animation: undefined,
   people: [],
+  squares: null,
+  
   
     init: function() {
+    let squares_container = document.getElementById("grid");
+    for(let i = 0; i <336; i++) {
+        let square = document.createElement("div");
+        square.className = "square";
+        squares_container.appendChild(square);
+    }
+        this. squares = squares_container.children;
 
       for(let i = 0; i < 1; i++ ) {
         this.people.push(this.createPerson());

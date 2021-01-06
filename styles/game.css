@@ -29,15 +29,18 @@
         flex-wrap: wrap;
         justify-content: center;
         width: 679px;
-        border: 1px solid #eee;
+        border: 0px solid #eee;
         border-radius: 10px;
         margin: auto;
-        padding: 10px;
+        padding: 9.5px;
         background-color: blueviolet;
+        
     }
     .square {
         height: 30px;
         width: 30px;
         background-color: white;
         margin: .5px;
+        border: .5px solid rgb(190, 46, 46);
+        
     }

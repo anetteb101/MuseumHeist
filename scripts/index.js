@@ -11,7 +11,7 @@ MuseumHeist = {
   
     init: function() {
     let squares_container = document.getElementById("grid");
-    for(let i = 0; i <336; i++) {
+    for(let i = 0; i <300; i++) {
         let square = document.createElement("div");
         square.className = "square";
         squares_container.appendChild(square);
@@ -81,8 +81,8 @@ MuseumHeist = {
       persondiv.className = "person";
       this.container.append(persondiv);
       let person = {
-        x_pos: Math.random()*695,
-        y_pos: Math.random()*500,
+        x_pos: 26,
+        y_pos: 15,
         x_velocity: 0,
         y_velocity: 0, 
         radius: 10,
@@ -97,12 +97,13 @@ MuseumHeist = {
     },
 
     animatePerson: function() {
+      this.removeWalls();
       this.movePerson();
       this.render();
     },
 
-    createWalls: function() {
-       
+    removeWalls: function() {
+        document.getElementById("grid").style.borderRightStyle = "hidden";
     },
 
 

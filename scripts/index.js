@@ -4,6 +4,9 @@ MuseumHeist = {
   animation: undefined,
   people: [],
   squares: null,
+  beginGame: document.getElementById("begin"),
+  hasBegun: false,
+  timerId: null,
   
   
     init: function() {
@@ -19,8 +22,13 @@ MuseumHeist = {
         this.people.push(this.createPerson());
       }
 
+      this.beginGame.onclick = function() {
+        this.startGame();
+      }
+
       window.onkeydown = function(event) {
         console.log(event.keyCode);
+      //  if(this.hasBegun == true) {
         if(event.keyCode == 87) {
           //press w
         for(let i = 0; i < this.people.length; i++) {
@@ -42,6 +50,7 @@ MuseumHeist = {
             this.moveDown(this.people[i]); 
           }
         }
+      //}
         
       }.bind(MuseumHeist)
 
@@ -53,6 +62,18 @@ MuseumHeist = {
 
       this.startAnimation();
       this.render();
+    },
+
+    startGame: function() {
+      if(this.hasBegun == false) {
+        this.hasBegun = true;
+        this.timerId = window.setTimeout(this.alarm.bind(MuseumHeist), 30 * 1000);
+        document.getElementById("timer_countdown").textContent = this.countdown();
+      } 
+    },
+
+    countdown: function() {
+
     },
 
     createPerson: function() {
@@ -85,9 +106,6 @@ MuseumHeist = {
         
     },
 
-    timer: function() {
-      
-    },
 
     render: function() {
       for(let i = 0; i < this.people.length; i++) {

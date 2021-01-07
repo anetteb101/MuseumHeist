@@ -13,7 +13,7 @@ MuseumHeist = {
         square.className = "square";
         squares_container.appendChild(square);
     }
-        this. squares = squares_container.children;
+        this.squares = squares_container.children;
 
       for(let i = 0; i < 1; i++ ) {
         this.people.push(this.createPerson());
@@ -82,7 +82,7 @@ MuseumHeist = {
     },
 
     removeWalls: function() {
-        document.getElementById("grid").style.borderRightStyle = "hidden";
+        
     },
 
     timer: function() {

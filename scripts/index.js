@@ -12,7 +12,7 @@ MuseumHeist = {
   
     init: function() {
     let squares_container = document.getElementById("grid");
-    for(let i = 0; i < 300; i++) {
+    for(let i = 0; i <3; i++) {
         let square = document.createElement("div");
         square.className = "square";
         squares_container.appendChild(square);

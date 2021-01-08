@@ -44,3 +44,8 @@
         border: .5px solid red;
         
     }
+
+    #countdown {
+        text-align: center;
+        display: inline-block;
+    }

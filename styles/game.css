@@ -4,7 +4,7 @@
 
  #Heist_container {
     width: 700px;
-    height: 500px;
+    height: 520px;
     position: relative;
     margin: auto;
     border: 2px solid black;
@@ -33,7 +33,7 @@
         border-radius: 10px;
         margin: auto;
         padding: 9.5px;
-        background-color: blueviolet;
+        background-color: white;
         
     }
     .square {
@@ -41,6 +41,6 @@
         width: 30px;
         background-color: white;
         margin: .5px;
-        border: .5px solid rgb(190, 35, 35);
+        border: .5px solid red;
         
     }

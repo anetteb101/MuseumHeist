@@ -117,7 +117,7 @@ MuseumHeist = {
     },
 
     removeWalls: function() {
-        document.getElementById("grid").style.borderRightStyle = "hidden";
+        
     },
 
 

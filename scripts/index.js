@@ -7,28 +7,29 @@ MuseumHeist = {
   beginGame: document.getElementById("begin"),
   hasBegun: false,
   timerId: null,
+  time:10,
   
   
     init: function() {
     let squares_container = document.getElementById("grid");
-    for(let i = 0; i <300; i++) {
+    for(let i = 0; i < 300; i++) {
         let square = document.createElement("div");
         square.className = "square";
         squares_container.appendChild(square);
     }
-        this. squares = squares_container.children;
+        this.squares = squares_container.children;
 
       for(let i = 0; i < 1; i++ ) {
         this.people.push(this.createPerson());
       }
 
       this.beginGame.onclick = function() {
-        this.startGame();
+        MuseumHeist.start();
       }
 
       window.onkeydown = function(event) {
         console.log(event.keyCode);
-      //  if(this.hasBegun == true) {
+        if(this.hasBegun == true) {
         if(event.keyCode == 87) {
           //press w
         for(let i = 0; i < this.people.length; i++) {
@@ -50,7 +51,7 @@ MuseumHeist = {
             this.moveDown(this.people[i]); 
           }
         }
-      //}
+      }
         
       }.bind(MuseumHeist)
 
@@ -64,16 +65,29 @@ MuseumHeist = {
       this.render();
     },
 
-    startGame: function() {
+    start: function() {
       if(this.hasBegun == false) {
         this.hasBegun = true;
-        this.timerId = window.setTimeout(this.alarm.bind(MuseumHeist), 30 * 1000);
-        document.getElementById("timer_countdown").textContent = this.countdown();
+        this.timerId = window.setTimeout(this.alarm.bind(MuseumHeist), this.time * 1000);
+      //  document.getElementById("timer_countdown").textContent = this.countdown();
       } 
     },
 
-    countdown: function() {
-
+    alarm: function() {
+    //  this.countdown();
+    let count = window.setInterval(function(){
+    //  let secondsLeft = this.time;
+        console.log(this.time);
+        if(this.time = 0) {
+          window.clearInterval(count);
+          document.getElementById("timer_countdown").textContent = "Game over!";
+        }
+        document.getElementById("timer_countdown").textContent = this.time;
+        this.time = this.time - 1;
+      }, 1000);
+      
+      //document.getElementById("timer_countdown").textContent = "Game over!";
+      this.hasBegun = false;
     },
 
     createPerson: function() {

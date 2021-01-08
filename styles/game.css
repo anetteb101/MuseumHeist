@@ -44,3 +44,8 @@
         border: .5px solid rgb(190, 46, 46);
         
     }
+
+    #countdown {
+        text-align: center;
+        display: inline-block;
+    }

@@ -69,24 +69,12 @@ MuseumHeist = {
       if(this.hasBegun == false) {
         this.hasBegun = true;
         this.timerId = window.setTimeout(this.alarm.bind(MuseumHeist), this.time * 1000);
-      //  document.getElementById("timer_countdown").textContent = this.countdown();
+        document.getElementById("timer_countdown").textContent = "Time is running out. Hurry!";
       } 
     },
 
-    alarm: function() {
-    //  this.countdown();
-    let count = window.setInterval(function(){
-    //  let secondsLeft = this.time;
-        console.log(this.time);
-        if(this.time = 0) {
-          window.clearInterval(count);
-          document.getElementById("timer_countdown").textContent = "Game over!";
-        }
-        document.getElementById("timer_countdown").textContent = this.time;
-        this.time = this.time - 1;
-      }, 1000);
-      
-      //document.getElementById("timer_countdown").textContent = "Game over!";
+    alarm: function() {   
+      document.getElementById("timer_countdown").textContent = "Game over!";
       this.hasBegun = false;
     },
 
@@ -128,7 +116,7 @@ MuseumHeist = {
       }
     },
 
-    movePerson: function(event) {
+    movePerson: function() {
       for(let i = 0; i < this.people.length; i++) {
       this.people[i].x_pos = this.people[i].x_pos + this.people[i].x_velocity;
       this.people[i].y_pos = this.people[i].y_pos + this.people[i].y_velocity;

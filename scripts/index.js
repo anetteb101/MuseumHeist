@@ -8,16 +8,18 @@ MuseumHeist = {
   hasBegun: false,
   timerId: null,
   time:10,
+  mazeWidth: 10,
+  mazeHeight:10,
   
   
     init: function() {
-    let squares_container = document.getElementById("grid");
-    for(let i = 0; i <3; i++) {
-        let square = document.createElement("div");
-        square.className = "square";
-        squares_container.appendChild(square);
-    }
-        this.squares = squares_container.children;
+   // let squares_container = document.getElementById("grid");
+    //for(let i = 0; i <336; i++) {
+     //   let square = document.createElement("div");
+      //  square.className = "square";
+       // squares_container.appendChild(square);
+  //  }
+       // this.squares = squares_container.children;
 
       for(let i = 0; i < 1; i++ ) {
         this.people.push(this.createPerson());
@@ -60,7 +62,7 @@ MuseumHeist = {
           this.stopMoving(this.people[i]);
         }
       }.bind(MuseumHeist)
-
+      this.createMaze();
       this.startAnimation();
       this.render();
     },
@@ -111,13 +113,58 @@ MuseumHeist = {
     },
 
     animatePerson: function() {
-      this.removeWalls();
+      //this.removeWalls();
       this.movePerson();
       this.render();
     },
 
-    removeWalls: function() {
+    createMaze: function(){
+        var rowIndex, colIndex;
+
+        var table = document.createElement("table");
+        var tbody = document.createElement("tbody");
+    
+        for (rowIndex = 1; rowIndex <= this.mazeHeight; rowIndex++) {
+    
+            var row = document.createElement("tr");
+    
+            for (colIndex = 1; colIndex <= this.mazeWidth; colIndex++) {
+    
+                var col = document.createElement("td");
+                if (rowIndex == 1 && colIndex == 1 ) {
+    
+                    col.style.backgroundColor = "rgb(244,0,0)";
+                    col.setAttribute("type", "start");
+    
+                } else if (rowIndex == this.mazeHeight && colIndex == this.mazeWidth) {
+                    
+                    col.style.backgroundColor = "rgb(0,244,0)";
+                    col.setAttribute("type", "finish");
+    
+                } else {
+    
+                    col.style.backgroundColor = "rgb(25,255,255)";
+    
+                }
+                col.setAttribute("id", "cell_" + rowIndex + "_" + colIndex);
+    
+                row.appendChild(col);
+    
+            }
+    
+            tbody.appendChild(row);
+    
+        }
         
+        table.appendChild(tbody);
+    
+        document.getElementById("Heist_container").appendChild(table);
+    
+    
+    },
+
+    removeWalls: function() {
+       
     },
 
 

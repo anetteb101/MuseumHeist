@@ -143,7 +143,7 @@ MuseumHeist = {
     
                 } else {
     
-                    col.style.backgroundColor = "rgb(25,255,255)";
+                    col.style.backgroundColor = "rgb(255,255,255)";
     
                 }
                 col.setAttribute("id", "cell_" + rowIndex + "_" + colIndex);
@@ -164,7 +164,33 @@ MuseumHeist = {
     },
 
     removeWalls: function() {
+        var exits = ["right", "bottom"]
+        var currentCell;
+
+        var rowIndex = 1;
+        var colIndex = 1;
         
+        for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
+        
+            switch(exits[exitIndex]) {
+        
+                case "right":
+        
+                    colIndex = colIndex + 1;
+                    break;
+        
+                case "bottom":
+        
+                    rowIndex = rowIndex + 1;
+                    break;
+        
+            }
+        
+            currentCell = document.getElementById("cell_" + rowIndex + "_" + colIndex);
+            
+            currentCell.style.backgroundColor = "#f00000";
+        
+        }
     },
 
 

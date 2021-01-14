@@ -12,9 +12,10 @@ MuseumHeist = {
   
     init: function() {
     let squares_container = document.getElementById("grid");
-    for(let i = 0; i <3; i++) {
+    for(let i = 0; i < 300; i++) {
         let square = document.createElement("div");
         square.className = "square";
+      //  square.setAttribute("id", square);
         squares_container.appendChild(square);
     }
         this.squares = squares_container.children;
@@ -74,8 +75,20 @@ MuseumHeist = {
     },
 
     alarm: function() {   
-      document.getElementById("timer_countdown").textContent = "Game over!";
+      document.getElementById("timer_countdown").textContent = "Press Begin to start the 10 second timer";
       this.hasBegun = false;
+      this.restart();
+    },
+
+    restart: function() {
+      if(this.hasBegun == false) {
+        alert("Game Over! Thank you for playing! We hope you enjoyed! You will be redirected to the Home page!");
+        window.location.href = "index.html";
+      //  for(let i = 0; i < this.people.length; i++) {
+      //    this.people[i].x_pos = 26;
+      //    this.people[i].y_pos = 15;
+      //  }
+      }
     },
 
     createPerson: function() {
@@ -158,6 +171,10 @@ MuseumHeist = {
     stopMoving: function(people) {
       people.x_velocity = 0;
       people.y_velocity = 0;
+    },
+
+    GameOver: function() {
+      
     }
   
   }

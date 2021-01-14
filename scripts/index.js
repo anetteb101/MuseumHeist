@@ -71,25 +71,25 @@ MuseumHeist = {
       if(this.hasBegun == false) {
         this.hasBegun = true;
         this.timerId = window.setTimeout(this.alarm.bind(MuseumHeist), this.time * 1000);
-      //  document.getElementById("timer_countdown").textContent = this.countdown();
+        document.getElementById("timer_countdown").textContent = "Time is running out. Hurry!";
       } 
     },
 
-    alarm: function() {
-    //  this.countdown();
-    let count = window.setInterval(function(){
-    //  let secondsLeft = this.time;
-        console.log(this.time);
-        if(this.time = 0) {
-          window.clearInterval(count);
-          document.getElementById("timer_countdown").textContent = "Game over!";
-        }
-        document.getElementById("timer_countdown").textContent = this.time;
-        this.time = this.time - 1;
-      }, 1000);
-      
-      //document.getElementById("timer_countdown").textContent = "Game over!";
+    alarm: function() {   
+      document.getElementById("timer_countdown").textContent = "Press Begin to start the 10 second timer";
       this.hasBegun = false;
+      this.restart();
+    },
+
+    restart: function() {
+      if(this.hasBegun == false) {
+        alert("Game Over! Thank you for playing! We hope you enjoyed! You will be redirected to the Home page!");
+        window.location.href = "index.html";
+      //  for(let i = 0; i < this.people.length; i++) {
+      //    this.people[i].x_pos = 26;
+      //    this.people[i].y_pos = 15;
+      //  }
+      }
     },
 
     createPerson: function() {
@@ -201,7 +201,7 @@ MuseumHeist = {
       }
     },
 
-    movePerson: function(event) {
+    movePerson: function() {
       for(let i = 0; i < this.people.length; i++) {
       this.people[i].x_pos = this.people[i].x_pos + this.people[i].x_velocity;
       this.people[i].y_pos = this.people[i].y_pos + this.people[i].y_velocity;
@@ -243,6 +243,10 @@ MuseumHeist = {
     stopMoving: function(people) {
       people.x_velocity = 0;
       people.y_velocity = 0;
+    },
+
+    GameOver: function() {
+      
     }
   
   }

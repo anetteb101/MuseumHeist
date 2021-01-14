@@ -119,18 +119,18 @@ MuseumHeist = {
     },
 
     createMaze: function(){
-        var rowIndex, colIndex;
+        let rowIndex, colIndex;
 
-        var table = document.createElement("table");
-        var tbody = document.createElement("tbody");
+        let table = document.createElement("table");
+        let tbody = document.createElement("tbody");
     
         for (rowIndex = 1; rowIndex <= this.mazeHeight; rowIndex++) {
     
-            var row = document.createElement("tr");
+            let row = document.createElement("tr");
     
             for (colIndex = 1; colIndex <= this.mazeWidth; colIndex++) {
     
-                var col = document.createElement("td");
+                let col = document.createElement("td");
                 if (rowIndex == 1 && colIndex == 1 ) {
     
                     col.style.backgroundColor = "rgb(244,0,0)";
@@ -164,7 +164,7 @@ MuseumHeist = {
     },
 
     removeWalls: function() {
-       
+        
     },
 
 

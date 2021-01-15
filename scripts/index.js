@@ -81,7 +81,6 @@ MuseumHeist = {
     //-Anette
     restart: function() {
       for(let i = 0; i < this.people.length; i++) {
-      //  lastexit = document.getElementById("cell_10_10");
       if(this.hasBegun == false && this.people[i].x_pos < 629 && this.people[i].y_pos < 460) {
         alert("Game Over! Thank you for playing! We hope you enjoyed! You will be redirected to the Home page!");
         window.location.href = "index.html";
@@ -375,8 +374,8 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
 
     //-Anette
     moveUp: function(people) {
-      if(people.y_velocity == 1) {
-          people.y_velocity = people.y_velocity * -3;
+      if(people.y_velocity == 3) {
+          people.y_velocity = people.y_velocity * -1;
         } else if(people.y_velocity == 0) {
           people.y_velocity = people.y_velocity - 3;
         }
@@ -384,8 +383,8 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
 
     //-Anette
     moveLeft: function(people) {
-      if(people.x_velocity == 1) {
-          people.x_velocity = people.x_velocity * -3;
+      if(people.x_velocity == 3) {
+          people.x_velocity = people.x_velocity * -1;
         } else if(people.x_velocity == 0) {
           people.x_velocity = people.x_velocity - 3;
         }
@@ -393,8 +392,8 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
 
     //-Omar
     moveRight: function(people) {
-      if(people.x_velocity == -1) {
-          people.x_velocity = people.x_velocity * -3;
+      if(people.x_velocity == -3) {
+          people.x_velocity = people.x_velocity * -1;
         } else if(people.y_velocity == 0) {
           people.x_velocity = people.x_velocity + 3;
         }
@@ -402,8 +401,8 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
 
     //-Omar
     moveDown: function(people) {
-      if(people.y_velocity == -1) {
-          people.y_velocity = people.y_velocity * -3;
+      if(people.y_velocity == -3) {
+          people.y_velocity = people.y_velocity * -1;
         } else if(people.y_velocity == 0) {
           people.y_velocity = people.y_velocity + 3;
         }

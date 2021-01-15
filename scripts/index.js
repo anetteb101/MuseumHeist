@@ -7,7 +7,7 @@ MuseumHeist = {
   beginGame: document.getElementById("begin"),
   hasBegun: false,
   timerId: null,
-  time:10,
+  time:30,
   mazeWidth: 10,
   mazeHeight:10,
   

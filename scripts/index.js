@@ -72,14 +72,14 @@ MuseumHeist = {
         this.hasBegun = true;
         this.timerId = window.setTimeout(this.alarm.bind(MuseumHeist), this.time * 1000);
         document.getElementById("timer_countdown").textContent = "Time is running out. Hurry!";
-        this.restart();
+      
       } 
     },
 
     alarm: function() {   
       document.getElementById("timer_countdown").textContent = "Press Begin to start the 30 second timer";
       this.hasBegun = false;
-      this.restart();
+    //  this.restart();
     },
 
     restart: function() {
@@ -120,11 +120,10 @@ MuseumHeist = {
         
       this.mazePath();
 
-      
-     
+      this.CollisionDetection();
       
       this.movePerson();
-      
+    
 
       this.render();
     },
@@ -368,14 +367,6 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
     },
 
 
-removeWalls: function(){
-   
-
-},
-
-    
-
-
     render: function() {
       for(let i = 0; i < this.people.length; i++) {
       this.people[i].element.style.top = this.people[i].y_pos + "px";
@@ -427,8 +418,25 @@ removeWalls: function(){
       people.y_velocity = 0;
     },
 
+
     CollisionDetection: function() {
-      
+      for(let i = 0; i < this.people.length; i++) {
+        //720 width, 530 height 
+        if(this.people[i].x_pos + this.people[i].radius * 2 > 720) {
+          this.people[i].x_pos = 720 - this.people[i].radius * 2;
+          this.people[i].x_velocity = 0;
+        } else if (this.people[i].x_pos < 0) {
+          this.people[i].x_pos = 0;
+          this.people[i].x_velocity = 0;
+        } 
+        if(this.people[i].y_pos + this.people[i].radius * 2 > 530) {
+          this.people[i].y_pos = 530 - this.people[i].radius * 2;
+          this.people[i].y_velocity = 0;
+        } else if (this.people[i].y_pos < 0) {
+          this.people[i].y_pos = 0;
+          this.people[i].y_velocity = 0;
+        }
+      }
     },
   
   }

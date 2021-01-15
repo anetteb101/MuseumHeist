@@ -77,7 +77,7 @@ MuseumHeist = {
     },
 
     alarm: function() {   
-      document.getElementById("timer_countdown").textContent = "Press Begin to start the 10 second timer";
+      document.getElementById("timer_countdown").textContent = "Press Begin to start the 30 second timer";
       this.hasBegun = false;
       this.restart();
     },

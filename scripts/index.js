@@ -72,6 +72,7 @@ MuseumHeist = {
         this.hasBegun = true;
         this.timerId = window.setTimeout(this.alarm.bind(MuseumHeist), this.time * 1000);
         document.getElementById("timer_countdown").textContent = "Time is running out. Hurry!";
+        this.restart();
       } 
     },
 
@@ -82,14 +83,15 @@ MuseumHeist = {
     },
 
     restart: function() {
-      if(this.hasBegun == false) {
+      for(let i = 0; i < this.people.length; i++) {
+      if(this.hasBegun == false && this.people[i].x_pos < 629 && this.people[i].y_pos < 460) {
         alert("Game Over! Thank you for playing! We hope you enjoyed! You will be redirected to the Home page!");
         window.location.href = "index.html";
-      //  for(let i = 0; i < this.people.length; i++) {
-      //    this.people[i].x_pos = 26;
-      //    this.people[i].y_pos = 15;
-      //  }
+      } else if(this.hasBegun == true && this.people[i].x_pos > 630 && this.people[i].y_pos > 461){
+        alert("CONGRATS!!! You have won! Thank you so much for playing! You will be redirected to the Home page");
+        window.location.href = "index.html";
       }
+    }
     },
 
     createPerson: function() {
@@ -98,6 +100,7 @@ MuseumHeist = {
       this.container.append(persondiv);
       let person = {
         x_pos: 26,
+        //for box location is >630 for x, >461 for y 
         y_pos: 15,
         x_velocity: 0,
         y_velocity: 0, 
@@ -234,9 +237,9 @@ MuseumHeist = {
 
     moveDown: function(people) {
       if(people.y_velocity == -1) {
-          people.y_velocity = people.y_velocity * -1;
+          people.y_velocity = people.y_velocity * -3;
         } else if(people.y_velocity == 0) {
-          people.y_velocity = people.y_velocity + 1;
+          people.y_velocity = people.y_velocity + 3;
         }
     },
 
@@ -245,9 +248,9 @@ MuseumHeist = {
       people.y_velocity = 0;
     },
 
-    GameOver: function() {
+    CollisionDetection: function() {
       
-    }
+    },
   
   }
   

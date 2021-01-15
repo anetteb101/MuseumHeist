@@ -49,7 +49,7 @@
 
     #countdown {
         text-align: center;
-        display: inline-block;
+        /*display: inline-block;*/
     }
 
     html, body  {

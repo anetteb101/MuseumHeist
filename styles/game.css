@@ -24,32 +24,9 @@
     h3 {
         margin: left;
     }
-    #grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 679px;
-        border: 0px solid #eee;
-        border-radius: 10px;
-        margin: auto;
-        padding: 9.5px;
-        background-color: white;
-        
-    }
-    .square {
-        height: 30px;
-        width: 30px;
-        background-color:white;
-        margin: 0px;
-        border: .5px solid red;
-        
-        
-        
-    }
 
     #countdown {
         text-align: center;
-        /*display: inline-block;*/
     }
 
     html, body  {

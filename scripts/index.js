@@ -13,14 +13,7 @@ MuseumHeist = {
   
   
     init: function() {
-   // let squares_container = document.getElementById("grid");
-    //for(let i = 0; i <336; i++) {
-     //   let square = document.createElement("div");
-      //  square.className = "square";
-       // squares_container.appendChild(square);
-  //  }
-       // this.squares = squares_container.children;
-
+      //-First two done by Omar
       for(let i = 0; i < 1; i++ ) {
         this.people.push(this.createPerson());
       }
@@ -29,6 +22,7 @@ MuseumHeist = {
         MuseumHeist.start();
       }
 
+      //Rest of init function done by Anette
       window.onkeydown = function(event) {
         console.log(event.keyCode);
         if(this.hasBegun == true) {
@@ -67,6 +61,7 @@ MuseumHeist = {
       this.render();
     },
 
+    //-Anette
     start: function() {
       if(this.hasBegun == false) {
         this.hasBegun = true;
@@ -76,12 +71,14 @@ MuseumHeist = {
       } 
     },
 
+    //-Anette
     alarm: function() {   
       document.getElementById("timer_countdown").textContent = "Press Begin to start the 30 second timer";
       this.hasBegun = false;
-    //  this.restart();
+      this.restart();
     },
 
+    //-Anette
     restart: function() {
       for(let i = 0; i < this.people.length; i++) {
       if(this.hasBegun == false && this.people[i].x_pos < 629 && this.people[i].y_pos < 460) {
@@ -94,13 +91,13 @@ MuseumHeist = {
     }
     },
 
+    //-Omar
     createPerson: function() {
       let persondiv = document.createElement("div");
       persondiv.className = "person";
       this.container.append(persondiv);
       let person = {
         x_pos: 26,
-        //for box location is >630 for x, >461 for y 
         y_pos: 15,
         x_velocity: 0,
         y_velocity: 0, 
@@ -111,10 +108,12 @@ MuseumHeist = {
       return person;
     },
 
+    //-Anette
     startAnimation: function() {
       this.animation = window.setInterval(this.animatePerson.bind(MuseumHeist), 30);
     },
 
+    //-Omar
     animatePerson: function() {
     
         
@@ -128,6 +127,7 @@ MuseumHeist = {
       this.render();
     },
 
+    //-Omar
     createMaze: function(){
         
 
@@ -205,7 +205,6 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
 
                 colIndex = colIndex - 1;
                 break;
-
 
     }
 
@@ -352,21 +351,12 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
     u2.style.borderRightStyle = "none";
     let v2= document.getElementById("cell_10_10")
     v2.style.borderLeftStyle = "none";
-    
 
 
-
-
-
-
-
-
-
-}   
-
+      }    
     },
 
-
+    //-Anette
     render: function() {
       for(let i = 0; i < this.people.length; i++) {
       this.people[i].element.style.top = this.people[i].y_pos + "px";
@@ -374,6 +364,7 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
       }
     },
 
+    //-Anette
     movePerson: function() {
       for(let i = 0; i < this.people.length; i++) {
       this.people[i].x_pos = this.people[i].x_pos + this.people[i].x_velocity;
@@ -381,6 +372,7 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
       }
     },
 
+    //-Anette
     moveUp: function(people) {
       if(people.y_velocity == 1) {
           people.y_velocity = people.y_velocity * -3;
@@ -389,6 +381,7 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
         }
     },
 
+    //-Anette
     moveLeft: function(people) {
       if(people.x_velocity == 1) {
           people.x_velocity = people.x_velocity * -3;
@@ -397,6 +390,7 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
         }
     },
 
+    //-Omar
     moveRight: function(people) {
       if(people.x_velocity == -1) {
           people.x_velocity = people.x_velocity * -3;
@@ -405,6 +399,7 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
         }
     },
 
+    //-Omar
     moveDown: function(people) {
       if(people.y_velocity == -1) {
           people.y_velocity = people.y_velocity * -3;
@@ -413,12 +408,14 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
         }
     },
 
+    //-Anette
     stopMoving: function(people) {
       people.x_velocity = 0;
       people.y_velocity = 0;
     },
 
-
+    //-Anette
+    //I modified the Collision Detection algorithm from the Modzilla Developer's website
     CollisionDetection: function() {
       for(let i = 0; i < this.people.length; i++) {
         //720 width, 530 height 

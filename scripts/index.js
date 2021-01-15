@@ -392,25 +392,25 @@ removeWalls: function(){
 
     moveUp: function(people) {
       if(people.y_velocity == 1) {
-          people.y_velocity = people.y_velocity * -1;
+          people.y_velocity = people.y_velocity * -3;
         } else if(people.y_velocity == 0) {
-          people.y_velocity = people.y_velocity - 1;
+          people.y_velocity = people.y_velocity - 3;
         }
     },
 
     moveLeft: function(people) {
       if(people.x_velocity == 1) {
-          people.x_velocity = people.x_velocity * -1;
+          people.x_velocity = people.x_velocity * -3;
         } else if(people.x_velocity == 0) {
-          people.x_velocity = people.x_velocity - 1;
+          people.x_velocity = people.x_velocity - 3;
         }
     },
 
     moveRight: function(people) {
       if(people.x_velocity == -1) {
-          people.x_velocity = people.x_velocity * -1;
+          people.x_velocity = people.x_velocity * -3;
         } else if(people.y_velocity == 0) {
-          people.x_velocity = people.x_velocity + 1;
+          people.x_velocity = people.x_velocity + 3;
         }
     },
 

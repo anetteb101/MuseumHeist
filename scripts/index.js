@@ -3,7 +3,6 @@ MuseumHeist = {
   container: document.getElementById("circle_container"),
   animation: undefined,
   people: [],
-  squares: null,
   beginGame: document.getElementById("begin"),
   hasBegun: false,
   timerId: null,
@@ -22,7 +21,7 @@ MuseumHeist = {
         MuseumHeist.start();
       }
 
-      //Rest of init function done by Anette
+      //-Anette
       window.onkeydown = function(event) {
         console.log(event.keyCode);
         if(this.hasBegun == true) {
@@ -36,7 +35,8 @@ MuseumHeist = {
           for(let i = 0; i < this.people.length; i++) {
             this.moveLeft(this.people[i]);
           }
-        } else if(event.keyCode == 68) {
+        } //-Omar
+        else if(event.keyCode == 68) {
           //press d
           for(let i = 0; i < this.people.length; i++) {
             this.moveRight(this.people[i]);
@@ -51,6 +51,7 @@ MuseumHeist = {
         
       }.bind(MuseumHeist)
 
+      //-Anette
       window.onkeyup = function(event) {
         for(let i = 0; i < this.people.length; i++) {
           this.stopMoving(this.people[i]);
@@ -67,7 +68,6 @@ MuseumHeist = {
         this.hasBegun = true;
         this.timerId = window.setTimeout(this.alarm.bind(MuseumHeist), this.time * 1000);
         document.getElementById("timer_countdown").textContent = "Time is running out. Hurry!";
-      
       } 
     },
 
@@ -81,6 +81,7 @@ MuseumHeist = {
     //-Anette
     restart: function() {
       for(let i = 0; i < this.people.length; i++) {
+      //  lastexit = document.getElementById("cell_10_10");
       if(this.hasBegun == false && this.people[i].x_pos < 629 && this.people[i].y_pos < 460) {
         alert("Game Over! Thank you for playing! We hope you enjoyed! You will be redirected to the Home page!");
         window.location.href = "index.html";
@@ -91,7 +92,7 @@ MuseumHeist = {
     }
     },
 
-    //-Omar
+    //-Anette
     createPerson: function() {
       let persondiv = document.createElement("div");
       persondiv.className = "person";
@@ -418,7 +419,6 @@ for (exitIndex = 0; exitIndex < exits.length; exitIndex++) {
     //I modified the Collision Detection algorithm from the Modzilla Developer's website
     CollisionDetection: function() {
       for(let i = 0; i < this.people.length; i++) {
-        //720 width, 530 height 
         if(this.people[i].x_pos + this.people[i].radius * 2 > 720) {
           this.people[i].x_pos = 720 - this.people[i].radius * 2;
           this.people[i].x_velocity = 0;
